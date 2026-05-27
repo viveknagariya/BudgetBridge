@@ -1,0 +1,110 @@
+const CATEGORY_KEYWORDS = {
+  Food: [
+    "food",
+    "dosa",
+    "pizza",
+    "burger",
+    "restaurant",
+    "hotel",
+    "cafe",
+    "zomato",
+    "swiggy",
+    "dominos",
+    "mcdonald",
+    "kfc",
+    "tea",
+    "coffee",
+    "grocery",
+    "groceries",
+    "dmart",
+    "big bazaar",
+    "blinkit",
+    "zepto",
+  ],
+  Housing: ["rent", "maintenance", "society", "pg", "hostel", "flat", "house"],
+  Transport: [
+    "metro",
+    "bus",
+    "train",
+    "railway",
+    "ola",
+    "uber",
+    "rapido",
+    "petrol",
+    "diesel",
+    "fuel",
+    "fastag",
+    "toll",
+    "parking",
+    "cab",
+    "taxi",
+    "auto",
+  ],
+  Shopping: [
+    "amazon",
+    "flipkart",
+    "myntra",
+    "shopping",
+    "clothes",
+    "shirt",
+    "jeans",
+    "shoes",
+    "mobile",
+    "electronics",
+  ],
+  Entertainment: [
+    "movie",
+    "cinema",
+    "netflix",
+    "prime",
+    "hotstar",
+    "spotify",
+    "bookmyshow",
+    "game",
+    "gaming",
+  ],
+  Utilities: [
+    "electricity",
+    "gas",
+    "water",
+    "wifi",
+    "internet",
+    "broadband",
+    "recharge",
+    "bill",
+    "mobile recharge",
+  ],
+  Healthcare: [
+    "hospital",
+    "doctor",
+    "medical",
+    "medicine",
+    "pharmacy",
+    "clinic",
+    "health",
+    "apollo",
+  ],
+  Education: [
+    "college",
+    "school",
+    "course",
+    "fees",
+    "tuition",
+    "exam",
+    "book",
+    "udemy",
+    "coursera",
+  ],
+};
+
+export const detectCategory = (description = "") => {
+  const text = String(description).toLowerCase();
+
+  for (const [category, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
+    if (keywords.some((keyword) => text.includes(keyword))) {
+      return category;
+    }
+  }
+
+  return "Other";
+};
